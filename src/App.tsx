@@ -19,7 +19,10 @@ function App() {
     const url = `https://app-dni.azurewebsites.net/api/HttpTrigger1?code=KrXk7retkfpEo7rf_LPr7NHp-9IvPEjEFToj7FbTs-etAzFuoiQjRA==&dni=${dni}`;
     const result = await fetch(url);
     const data = await result.json();
-    if (data.success === false) return alert('No se encontro el dni');
+    if (data.success === false) {
+      setIsShowing(false);
+      return alert('No se encontro el dni');
+    }
     setData(data);
   };
   const onChange = (e: any) => {
@@ -31,7 +34,6 @@ function App() {
   const searchDni = () => {
     if (dni.length != 8) return alert('Ingrese un dni valido');
     setData(null);
-    console.log('searching');
     setIsShowing(true);
     consultApiDni();
   };
@@ -55,7 +57,7 @@ function App() {
                 value={dni}
                 onChange={onChange}
               />
-              <p className="shadow-of-input">{dni}</p>
+              {/* <p className="shadow-of-input">{dni}</p> */}
             </div>
             <Button text="BUSCAR" onClick={searchDni} />
           </div>

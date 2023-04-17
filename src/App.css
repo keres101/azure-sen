@@ -2,7 +2,7 @@
   /* --background-color: #211C1C; */
   --background-color: #111113;
   --background-img: radial-gradient(
-    circle at 100% 100%,
+    circle at 65% 65%,
     #222246c3 0%,
     #111113 50%
   );
@@ -164,8 +164,8 @@ body {
   right: 0;
   height: 60%;
   background-image: radial-gradient(
-    circle,
-    var(--background-color) 15%,
+    circle at 50% 100% 20px,
+    /* var(--background-color) 15%, */ red,
     #111113b8 55%,
     transparent 80%
   );
